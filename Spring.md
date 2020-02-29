@@ -68,8 +68,8 @@ public class AutowiredTest
 }
 </pre></code>
 
-Spring code Run
-===============
+How to run Spring project
+=========================
 
 
 ### package
@@ -82,3 +82,7 @@ terminal : ./mvnw package
 ### run jar
 terminal : java -jar 'build 후 jar파일이 생성된 위치의 상위폴더'/*.jar  
 (해당 폴더에 jar file 은 하나 밖에 존재하지 않는다.)
+
+application : ctr + sifht + R
+
+

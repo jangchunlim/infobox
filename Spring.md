@@ -83,7 +83,8 @@ terminal : ./mvnw package
 terminal : java -jar 'build 후 jar파일이 생성된 위치의 상위폴더'/*.jar  
 (해당 폴더에 jar file 은 하나 밖에 존재하지 않는다.)
 
-application : ctr + sifht + R
+application : ctr + R
+application(test) : ctr + sifht + R
 
 ------------------------------------------------------------------------------------------------
 Process Flow
@@ -143,6 +144,17 @@ Bean에 등록하기 하기 위한 방법은 세가지가 있다
 세번째는 특정 클래스를 상속받는다.
 
 @SpringBootApplication아래에 있는 @ComponenetSacn 를 통해 @Component들을 모두 찾는다.
+
+@Autowired를 통해서도 Bean으로 등록된다.
+
+### DI
+생성자를 통해 의존성을 주입하지않고 @Autowired를 통해서 주입이 가능하다.  
+선언에서 final 이 빠지고 생성자를 제외하고 실행 = @Autowired  
+IOC 컨테이너에서 주입한다.
+<img width="825" alt="스크린샷 2020-03-01 오후 2 53 21" src="https://user-images.githubusercontent.com/60742564/75621503-87f0f300-5bd8-11ea-8954-5a09104131e0.png">
+
+Setter에만 @Autowired 를 사용해서 구현도 가능하다.  
+<img width="399" alt="스크린샷 2020-03-01 오후 4 40 14" src="https://user-images.githubusercontent.com/60742564/75621728-6b09ef00-5bdb-11ea-9187-290b85a3986e.png">
 
 
 

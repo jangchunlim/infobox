@@ -85,4 +85,49 @@ terminal : java -jar 'build 후 jar파일이 생성된 위치의 상위폴더'/*
 
 application : ctr + sifht + R
 
+------------------------------------------------------------------------------------------------
+Process Flow
+============
+
+### pet-clinic  
+
+web 으로 호출되었을 때
+
+1. DispatcherServlet, RequestMappingHandler 를 통해 기본 컨트롤러를 찾아간다.(owner contrlloer)  
+<img width="1283" alt="스크린샷 2020-03-01 오후 12 28 12" src="https://user-images.githubusercontent.com/60742564/75618949-5831f300-5bb8-11ea-9b64-a999dc27a69d.png">
+
+2. 컨트롤러에서 @getMapping 어노테이션을 통해 해당 도메인에 맞는 부분을 찾아간다.  
+<img width="736" alt="스크린샷 2020-03-01 오후 1 44 36" src="https://user-images.githubusercontent.com/60742564/75619724-ee6b1680-5bc2-11ea-92ef-ead4d2832890.png">
+
+3. 해당 로직을 수행한 후 정의된 view 를 return 한다.  
+<img width="1127" alt="스크린샷 2020-03-01 오후 1 48 29" src="https://user-images.githubusercontent.com/60742564/75619769-74875d00-5bc3-11ea-8a1d-842752830ae5.png">
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+Content
+=======
+
+### IOC & DI
+빈을 만들어준다.
+만들어진 빈을 엮어준다.
+빈을 저장하는 컨테이너를 제공한다.
+모든 클래스를 빈으로 등록하지는 않는다.(주로 Entity)
+Bean등록을 직접 할 수 있다.  
+<img width="564" alt="스크린샷 2020-03-01 오후 2 07 29" src="https://user-images.githubusercontent.com/60742564/75619958-2c1d6e80-5bc6-11ea-9a2f-182f3e9cc89a.png">  
+사용할 의존성을 직접만든다.
+의존성 주입은 IOC컨테이너에 존재하는 bean들끼리만 가능하다.
+보통은 생성자를 통해서 받은 매개변수를 통해 직접 주입한다.
+이부분은 싱글톤 패턴의 구사 방식과 비슷한 듯 하다.  
+<img width="723" alt="스크린샷 2020-03-01 오후 1 55 05" src="https://user-images.githubusercontent.com/60742564/75619848-65ed7580-5bc4-11ea-8995-9f45258adfae.png">  
+외부에서 해당 클래스 주입(매개변수)할 수 있도록 한다.
+
+### ApplicationContext
+IOC는 BeanFactory과 ApplicationContext를 사용한다.(주로 ApplicationContext를 사용한다.)
+ApplicationContext는 BeanFactory를 상속받고 다른 인터페이스들을 상속받기 때문에 Spring 내에서 더 많은 일을 수행한다.
+개발자가 직접 접근하는 일은 거의 없다.
+
+
 

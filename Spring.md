@@ -111,23 +111,39 @@ Content
 =======
 
 ### IOC & DI
-빈을 만들어준다.
-만들어진 빈을 엮어준다.
-빈을 저장하는 컨테이너를 제공한다.
-모든 클래스를 빈으로 등록하지는 않는다.(주로 Entity)
+빈을 만들어준다.  
+만들어진 빈을 엮어준다.  
+빈을 저장하는 컨테이너를 제공한다.  
+모든 클래스를 빈으로 등록하지는 않는다.(주로 Entity)  
 Bean등록을 직접 할 수 있다.  
 <img width="564" alt="스크린샷 2020-03-01 오후 2 07 29" src="https://user-images.githubusercontent.com/60742564/75619958-2c1d6e80-5bc6-11ea-9a2f-182f3e9cc89a.png">  
-사용할 의존성을 직접만든다.
-의존성 주입은 IOC컨테이너에 존재하는 bean들끼리만 가능하다.
-보통은 생성자를 통해서 받은 매개변수를 통해 직접 주입한다.
-이부분은 싱글톤 패턴의 구사 방식과 비슷한 듯 하다.  
+사용할 의존성을 직접만든다.  
+의존성 주입은 IOC컨테이너에 존재하는 bean들끼리만 가능하다.  
+보통은 생성자를 통해서 받은 매개변수를 통해 직접 주입한다.  
+이부분은 싱글톤 패턴의 구사 방식과 비슷한 듯 하다.    
 <img width="723" alt="스크린샷 2020-03-01 오후 1 55 05" src="https://user-images.githubusercontent.com/60742564/75619848-65ed7580-5bc4-11ea-8995-9f45258adfae.png">  
 외부에서 해당 클래스 주입(매개변수)할 수 있도록 한다.
+생성자단계에서 반드시 명시해주지 않으면 에러가 발생한다.(인스턴스 생성 시 자체적으로 가지는 변수에 대해 주입이 필요하다.)  
+
+IOC 를 통해서 주입된 값과 직접적으로 ApplicationContext에 접근하여 받은 주소값은 값다.  
+<img width="825" alt="스크린샷 2020-03-01 오후 2 53 21" src="https://user-images.githubusercontent.com/60742564/75620453-8e796d80-5bcc-11ea-915b-65bf6f5edea1.png">
+
 
 ### ApplicationContext
-IOC는 BeanFactory과 ApplicationContext를 사용한다.(주로 ApplicationContext를 사용한다.)
-ApplicationContext는 BeanFactory를 상속받고 다른 인터페이스들을 상속받기 때문에 Spring 내에서 더 많은 일을 수행한다.
-개발자가 직접 접근하는 일은 거의 없다.
+IOC는 BeanFactory과 ApplicationContext를 사용한다.(주로 ApplicationContext를 사용한다.)  
+ApplicationContext는 BeanFactory를 상속받고 다른 인터페이스들을 상속받기 때문에 Spring 내에서 더 많은 일을 수행한다.  
+개발자가 직접 접근하는 일은 거의 없다.  
+
+
+### Bean
+IOC 컨테이너가 관리하는 객체를 Bean이라 한다.(ApplicationContext가 알고있는 객체)  
+Bean에 등록하기 하기 위한 방법은 세가지가 있다
+첫번째는 @Component 를 모두 스캔하여 해당 클래스의 인스턴스를 Bean으로 등록한다.(반드시 '@Componenet'라고 명시하지 않아도 된다.
+두번째는 @bean (직접)
+세번째는 특정 클래스를 상속받는다.
+
+@SpringBootApplication아래에 있는 @ComponenetSacn 를 통해 @Component들을 모두 찾는다.
+
 
 
 

@@ -68,6 +68,40 @@ public class AutowiredTest
 }
 </pre></code>
 
+
+### @RestController
+@Controller + @ResponseBody  
+@ResponseBody를 모든 메소드에서 적용한다.  
+메소드의 반환 결과(문자열)를 JSON 형태로 반환한다.  
+
+
+### @Controller 와 @RestController 차이
+@Controller  
+API와 view를 동시에 사용하는 경우에 사용  
+대신 API 서비스로 사용하는 경우는 @ResponseBody를 사용하여 객체를 반환한다.  
+view(화면) return이 주목적  
+@RestController  
+view가 필요없는 API만 지원하는 서비스에서 사용 (Spring 4.0.1부터 제공)  
+@RequestMapping 메서드가 기본적으로 @ResponseBody 의미를 가정한다.  
+data(json, xml 등) return이 주목적  
+즉, @RestController = @Controller + @ResponseBody  
+
+
+@Autowired
+org.springframework.beans.factory.annotation.Autowired
+Type에 따라 알아서 Bean을 주입한다.
+필드, 생성자, 입력 파라미터가 여러 개인 메소드(@Qualifier는 메소드의 파라미터)에 적용 가능
+Type을 먼저 확인한 후 못 찾으면 Name에 따라 주입한다.
+Name으로 강제하는 방법: @Qualifier을 같이 명시
+예시
+
+TIP) Bean을 주입받는 방식 (3가지)
+@Autowired
+setter
+생성자 (@AllArgsConstructor 사용) -> 권장방식
+https://gmlwjd9405.github.io/2018/12/02/spring-annotation-types.html
+
+
 How to run Spring project
 =========================
 
@@ -156,6 +190,9 @@ IOC 컨테이너에서 주입한다.
 Setter에만 @Autowired 를 사용해서 구현도 가능하다.  
 <img width="399" alt="스크린샷 2020-03-01 오후 4 40 14" src="https://user-images.githubusercontent.com/60742564/75621728-6b09ef00-5bdb-11ea-9187-290b85a3986e.png">
 
+
+@RestController 이노테이션을 이용한 예제  
+<img width="623" alt="스크린샷 2020-03-02 오후 3 36 31" src="https://user-images.githubusercontent.com/60742564/75651543-14181e80-5c9c-11ea-9547-526957b808c7.png">
 
 
 

@@ -64,3 +64,7 @@ ex)
 X : POST /login
 X : POST /users/login
 O : POST /session
+
+### 기존의 method 호출방식과 비교  
+
+<img width="852" alt="스크린샷 2020-03-15 오후 8 06 10" src="https://user-images.githubusercontent.com/60742564/76700191-7fc8a580-66f8-11ea-9edb-fc6414815a27.png">

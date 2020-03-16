@@ -15,7 +15,8 @@ Selectos : 하나의 스레드에서 다중 입력 채널을 관리할 수 있�
 channerls : 채널을 통해서 읽고 쓸 수 있음, 비동기적
 stream : 일반적으로 단방향으로만 가능
 
-```
+<pre>
+<code>
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -82,4 +83,5 @@ public class EchoServer {
         System.out.println("new client connected...");
     }
 }
-```
+</code>
+</pre>

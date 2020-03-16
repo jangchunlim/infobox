@@ -39,9 +39,26 @@ REST 서버는 다중 계층으로 구성될 수 있다. 예를 들어 보안, �
 2. 하이픈(-) 사용으로 가독성 높임
 3. (_)사용 금지
 4. 확장자 사용 금지
+```
+http://api.example.com/device-management/managed-devices.xml  /*Do not use it*/
+http://api.example.com/device-management/managed-devices 	/*This is correct URI*/
+```
 5. path의 마지막에는 (/) 사용 금지
 6. CRUD function names 를 사용하지 말 것
+```
+HTTP GET http://api.example.com/device-management/managed-devices  //Get all devices
+HTTP POST http://api.example.com/device-management/managed-devices  //Create new Device
+HTTP GET http://api.example.com/device-management/managed-devices/{id}  //Get device for given Id
+HTTP PUT http://api.example.com/device-management/managed-devices/{id}  //Update device for given Id
+HTTP DELETE http://api.example.com/device-management/managed-devices/{id}  //Delete device for given Id
+```
 7. URI collenction을 구분하기 위해 쿼리를 사용할 것
+```
+http://api.example.com/device-management/managed-devices
+http://api.example.com/device-management/managed-devices?region=USA
+http://api.example.com/device-management/managed-devices?region=USA&brand=XYZ
+http://api.example.com/device-management/managed-devices?region=USA&brand=XYZ&sort=installation-date
+```
 
 ### http 응답 코드
 

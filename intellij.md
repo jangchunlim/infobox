@@ -1,4 +1,5 @@
-*** 빌드 오류시
+빌드 오류시
+========
 
 In menu "Build > Rebuild project".
 In menu "File > Invalidate caches / Restart... > Invalidate and Restart".

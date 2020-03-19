@@ -223,5 +223,31 @@ Partial Response는 Google 스타일을 이용하는 것을 권장한다.
  (사용자가 서버에 리소스에 대한 정보를 요청할 때 해당 리소스에 포함된 모든 정보를 요구하는 경우보다는 리소스에 해당하는 세부 몇 개의 정보만을 원하는 경우가 더 많다.) 
  - 예를 들면 user 리소스에 해당하는 정보는 id, pw, 이름, 주소, 전화번호 정보들이 있다고 해보자. 사용자는 user들의 정보 조회시 id와 이름 정보만 필요로 하는 경우가 있을 것이다. 이 때 user 사용자에게 user의 모든 정보를 제공하는 것보다 필요한 정보만 제공해준다면 전체 응답의 양을 대폭 줄일 수 있을 것이다. 
 
+### naming convetion 
 
+### naming convention 목적
+나쁜 예	a = b * c ;	a / b / c 각 변수가 의미하는 바를 파악하기 힘듦
+좋은 예	weekly_pay = hours_worked * hourly_pay_rate ;	변수명만 보고도 주급 계산을 위한 변수임을 알 수 있음
+
+### 표기법 종류
+- camel case
+  lower camel case (upper camel case 와 분류할 수 있지만 대부분 camel case 는 lower camel case 를 가리킴)
+  각 단어의 첫 문자를 대문자로 표기하지만, 전체에서의 첫 글자는 소문자로 표기 (단봉낙타 표기법)
+  ex) camelCase, lowerCamelCase
+
+  
+- pascal case
+  전체 이름의 첫 문자를 포함한 각 단어의 첫 문자를 대문자로 표시
+  
+- snake case
+  각 단어의 사이를 '_'로 구분하여 표기
+  ex) camel_case, snake_case
+  
+- Kebab case
+  각 단어 사이를 '-'로 구분하여 표기
+  ex) kebab-case
+  
+- hungarian notation
+  이름앞에 변수의 타입을 접두어로 넣어주어 표기(ch-char, db-double, str-string, b-boolean)
+  ex) bCamelCase strCamelCase
 

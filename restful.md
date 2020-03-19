@@ -251,3 +251,13 @@ Partial Response는 Google 스타일을 이용하는 것을 권장한다.
   이름앞에 변수의 타입을 접두어로 넣어주어 표기(ch-char, db-double, str-string, b-boolean)
   ex) bCamelCase strCamelCase
 
+### http method override
+일부 브라우저, 네트워크 프로시는 GET, POST 만 쓸 수 있다.    
+그러므로 PUT(PATCH), DELETE 요청을 할 때는 서버에 힌트를 제공하는 방법을 제공해야 한다.   
+POST /articles    
+---payload--- _method=PUT&title=...&content=...    
+ 
+
+POST /articles   
+<b> X-HTTP-Method-Override=PUT <b/>   
+---payload--- _method=PUT&title=...&content=...   

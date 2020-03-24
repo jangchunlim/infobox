@@ -208,4 +208,5 @@ properties
 ### spring.jpa.properties.hibernate.format_sql=true   
 * sql 포맷 형태를 맞춘다.   
 
+### entity 작성 시 @Id 의 출처는 javax.persistence.Id 이다.
 

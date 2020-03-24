@@ -202,5 +202,10 @@ properties
 ### spring.jpa.show-sql=true   
 * sql문을 log로 남겨준다.
 ### server.port=8090   
-* port를 지정한다.
+* port를 지정한다.   
+### spring.jpa.hibernate.ddl-auto=create-drop   
+* 로딩 시 create 하고 죽기 전 drop 하도록 한다.   
+### spring.jpa.properties.hibernate.format_sql=true   
+* sql 포맷 형태를 맞춘다.   
+
 

@@ -210,3 +210,9 @@ properties
 
 ### entity 작성 시 @Id 의 출처는 javax.persistence.Id 이다.
 
+<pre>
+<code>
+import org.springframework.data.annotation.Id;    (X)
+import javax.persistence.Id;                      (O)
+<code/>
+<pre/>

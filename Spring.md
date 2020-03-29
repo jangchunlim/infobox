@@ -1,3 +1,37 @@
+Constructor
+===========
+* controller   
+URL과 실행 함수를 매핑   
+비즈니스 로직이 있는 service를 호출하여 비즈니스 로직 처리   
+반환할 템플릿을 정의 및 JSON 등으로 응답   
+
+* service   
+비즈니스 로직을 구현    
+데이터 처리(모델)를 담당하는 repository에서 데이터를 가져와서 controller에 넘겨주거나, 비즈니스 로직을 처리   
+
+* domain > entity   
+DB 테이블과 매핑되는 객체(Entity)를 정의   
+JPA에서는 Entity를 통해 데이터를 조작함   
+
+* domain > repository   
+데이터를 가져오거나 조작하는 함수를 정의   
+Interface를 implements하여 미리 만들어진 함수를 사용할 수 있으며, 또한 직접 구현이 가능   
+
+* dto   
+controller와 service 간에 주고 받을 객체를 정의하며, 최종적으로는 view에 뿌려줄 객체   
+Entity와 속성이 같을 수 있으나, 여러 service를 거쳐야 하는 경우 dto의 몸집은 더 커짐   
+ex) AEntity에 a 속성, BEntity에 b속성이 있을 때, ZDto에 a,b 속성으로 정의될 수 있음   
+entity와 dto를 분리한 이유는 Entity는 DB 테이블이 정의되어 있으므로, 데이터 전달 목적을 갖는 객체인 dto를 정의하는 것이 좋다고 합니다. ( 참고 )
+
+* static   
+css, js, img 등의 정적 자원들을 모아놓은 디렉터리입니다.   
+* templates   
+템플릿을 모아놓은 디렉터리입니다.   
+Thymeleaf는 HTML을 사용합니다.   
+
+
+
+
 Spring annotaion
 ================
 
@@ -68,6 +102,14 @@ public class AutowiredTest
 }
 </pre></code>
 
+### @AllArgsConstructor
+Bean 주입 방식과 관련이 있으며, 생성자로 Bean 객체를 받는 방식을 해결해주는 어노테이션이다.   
+그래서 BoardService 객체를 주입 받을 때 @Autowired 같은 특별한 어노테이션을 부여하지 않는다.   
+그 밖에, @NoArgsConstructor @RequiredArgsConstructor 어노테이션이 있다.    
+
+### @GetMapping/@PostMapping
+URL을 매핑해주는 어노테이션이며, HTTP Method에 맞는 어노테이션을 작성한다.
+
 
 ### @RestController
 @Controller + @ResponseBody  
@@ -87,7 +129,7 @@ data(json, xml 등) return이 주목적
 즉, @RestController = @Controller + @ResponseBody  
 
 
-@Autowired
+### @Autowired
 org.springframework.beans.factory.annotation.Autowired
 Type에 따라 알아서 Bean을 주입한다.
 필드, 생성자, 입력 파라미터가 여러 개인 메소드(@Qualifier는 메소드의 파라미터)에 적용 가능

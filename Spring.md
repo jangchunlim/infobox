@@ -143,6 +143,17 @@ setter
 생성자 (@AllArgsConstructor 사용) -> 권장방식
 https://gmlwjd9405.github.io/2018/12/02/spring-annotation-types.html
 
+### PathVariable("no") Long no   
+유동적으로 변하는 Path variable 처리하는 방법
+<pre><code>
+@DeleteMapping("/post/{no}")
+    public String delete(@PathVariable("no") Long no) {
+        boardService.deletePost(no);
+
+        return "redirect:/";
+    }
+</pre></code>
+
 
 How to run Spring project
 =========================
@@ -282,5 +293,49 @@ junit test
 @Test 메서드가 호출 될 때마다 새로운 인스턴스를 생성하여 독립적인 테스트를 한다.
 없는 경우 src/ 밑에 test 폴더 생성한 후 모듈 설정을 해준다.
 
+----------------------------------------------------------------------------------------
+redirect, forward
+================
 
+redirect = URL 변화 O, 객체 재사용 X, 시스템(seesion, DB)에 변화가 생기는 요청(로그인, 회원가입, 글쓰기)
+forward = URL 변화 X, 객체 재사용 O, 시스템(seesion, DB)에 변화가 생기지 않는 단순조회(리스트보기, 검색)
+
+model 객체를 통해 view에 데이터를 전달
+================================
+<pre><code>
+@Controller
+@AllArgsConstructor
+public class BoardController {
+    private BoardService boardService;
+
+    /* 게시글 목록 */
+    @GetMapping("/")
+    public String list(Model model) {
+        List<BoardDto> boardList = boardService.getBoardlist();
+
+        model.addAttribute("boardList", boardList);
+        return "board/list.html";
+    }
+
+
+
+    ...
+
+}
+</pre></code>
+
+PutMapping 메소드의 return 값을 통해 특정 변수를 포함시켜야할 때 
+======================================================
+String.format 을 사용한다.   
+C언어에서 printf를 하는 방식과 같다.
+ex) return String.format("redirect:/questions/%d",id);
+
+update 시 post, post를 이요한다.
+=============================
+
+<img width="546" alt="스크린샷 2020-03-30 오후 2 28 15" src="https://user-images.githubusercontent.com/60742564/77878224-d0acd200-7292-11ea-9376-f0d30224d8f4.png">
+
+
+
+<img width="664" alt="스크린샷 2020-03-30 오후 2 28 37" src="https://user-images.githubusercontent.com/60742564/77878253-e0c4b180-7292-11ea-9800-7568dc284bde.png">
 

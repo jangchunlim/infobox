@@ -106,6 +106,7 @@ public class AutowiredTest
 Bean 주입 방식과 관련이 있으며, 생성자로 Bean 객체를 받는 방식을 해결해주는 어노테이션이다.   
 그래서 BoardService 객체를 주입 받을 때 @Autowired 같은 특별한 어노테이션을 부여하지 않는다.   
 그 밖에, @NoArgsConstructor @RequiredArgsConstructor 어노테이션이 있다.    
+해당 어노테이션을 붙이고 생성자를 만들지 않으면 null point error 가 
 
 ### @GetMapping/@PostMapping
 URL을 매핑해주는 어노테이션이며, HTTP Method에 맞는 어노테이션을 작성한다.
@@ -338,4 +339,5 @@ update 시 post, post를 이요한다.
 
 
 <img width="664" alt="스크린샷 2020-03-30 오후 2 28 37" src="https://user-images.githubusercontent.com/60742564/77878253-e0c4b180-7292-11ea-9800-7568dc284bde.png">
+
 

@@ -340,4 +340,33 @@ update 시 post, post를 이요한다.
 
 <img width="664" alt="스크린샷 2020-03-30 오후 2 28 37" src="https://user-images.githubusercontent.com/60742564/77878253-e0c4b180-7292-11ea-9800-7568dc284bde.png">
 
+Spring boot 에서 jsp 불러오기
+==========================
+프로젝트 생성 시 war로 만들고 spring web을 추가
+
+### 1. Controller
+
+@Controller
+public class MainController {
+
+@RequestMapping(value="/")
+public String main() throws Exception { 
+return "/index";
+}
+}
+
+### 2. jsp를 src/main/webapp/WEB-INF/views 에 위치
+
+### 3. application.properties 에 선언
+
+spring.mvc.view.prefix: /WEB-INF/views
+spring.mvc.view.suffix: .jsp
+
+### 4. 의존성 추가 (gradle)
+
+compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+compile('javax.servlet:jstl:1.2')
+
+(한 다음엔 꼭 Gradle > Refresh Gradle Project)
+
 

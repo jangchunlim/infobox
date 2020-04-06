@@ -1,4 +1,5 @@
-### 복합키 일 때 JPA 사용법
+복합키 일 때 JPA 사용법
+===================
 
 @EmbeddedId
 
@@ -123,7 +124,8 @@ public class Child {
 복합 키에는 @GenerateValue를 사용 할 수 없다.
 
 
-### Specification
+Specification
+=============
 
 <pre>
 <code>

@@ -370,3 +370,34 @@ compile('javax.servlet:jstl:1.2')
 (한 다음엔 꼭 Gradle > Refresh Gradle Project)
 
 
+### service 로 등록된 모든 객체 생성(생성자의 파라미터 없이)
+
+<pre>
+<code>
+
+import com.sun.istack.NotNull;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ApplicationContextProvider implements ApplicationContextAware {
+
+    private static ApplicationContext applicationContext;
+
+    @Override
+    public void setApplicationContext(@NotNull ApplicationContext ctx) throws BeansException {
+        applicationContext = ctx;
+    }
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+}
+
+
+</pre>
+</code>
+

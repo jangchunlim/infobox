@@ -374,7 +374,6 @@ compile('javax.servlet:jstl:1.2')
 
 <pre>
 <code>
-
 import com.sun.istack.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -396,7 +395,6 @@ public class ApplicationContextProvider implements ApplicationContextAware {
     }
 
 }
-
 
 </pre>
 </code>

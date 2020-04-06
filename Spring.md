@@ -268,8 +268,8 @@ properties
 <code>
 import org.springframework.data.annotation.Id;    (X)
 import javax.persistence.Id;                      (O)
-<code/>
-<pre/>
+</pre>
+</code>
 
 ----------------------------------------------------------------------------------------
 tip

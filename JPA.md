@@ -123,3 +123,47 @@ public class Child {
 복합 키에는 @GenerateValue를 사용 할 수 없다.
 
 
+### Specification
+
+<pre>
+<code>
+@Entity
+public class Post {
+    @Id @GeneratedValue
+    private Long id;
+    private String title;
+    private String tag;
+    private int likes;
+...
+}
+public interface PostRepository extends JpaRepository<Post, Long> {
+    List<Post> findAllByTitle(String title);
+    List<Post> findAllByTag(String tag);
+    List<Post> findAllByLikesGreaterThan(int likes);
+}
+@RestController
+public class PostController {
+
+    private final PostRepository postRepository;
+
+    public PostController(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
+
+    @GetMapping("/post/list")
+    public List<Post> getPostList(@RequestParam(required = false) String title,
+                                  @RequestParam(required = false) String tag,
+                                  @RequestParam(required = false) Integer likes) {
+        if (title != null) {
+            return postRepository.findByTitle(title);
+        } else if (tag != null) {
+            return postRepository.findByTag(tag);
+        } else if (likes != null) {
+            return postRepository.findByLikesGreaterThan(likes);
+        } else {
+            return postRepository.findAll();
+        }
+    }
+}
+</pre>
+</code>
